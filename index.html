@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maxime Hrynyk · Anti-coach</title>
+<meta name="description" content="Anti-coach. Pour être accompagné autrement : on tranche, on agit, on règle les sujets qui traînent depuis des mois.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F3F0; --paper-2:#E9E7E2; --white:#FFFFFF;
+  --ink:#141413; --ink-2:#3C3B37; --gris:#73716A; --gris-2:#9A988F;
+  --vif:#E9C46A; --vif-h:rgba(233,196,106,.72);
+  --line:rgba(20,20,19,.10); --line-2:rgba(20,20,19,.18);
+  --r:24px; --max:1100px;
+  --sh:0 1px 0 rgba(255,255,255,.9) inset,0 18px 38px -24px rgba(20,20,19,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--paper);color:var(--ink);font-family:'Manrope',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:16.5px;line-height:1.6;letter-spacing:-.012em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-weight:800;letter-spacing:-.045em;line-height:1.08}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:64px 0}
+.dark{background:var(--ink);color:var(--paper)}
+.dark p,.dark .lead{color:#A8A69D}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gris);background:var(--white);border:1px solid var(--line);border-radius:100px;padding:8px 16px;margin-bottom:22px;box-shadow:var(--sh)}
+.eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--vif);display:block}
+.dark .eyebrow{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#C9C7BC;box-shadow:none}
+h2{font-size:clamp(28px,4.2vw,46px);margin-bottom:18px}
+.lead{color:var(--gris);font-size:17px;line-height:1.68;max-width:60ch}
+.head{text-align:center;margin-bottom:38px}
+.head .lead{margin:0 auto}
+.hl{background:linear-gradient(180deg,transparent 58%,var(--vif-h) 58%);padding:0 .06em;border-radius:2px}
+.dark .hl{background:linear-gradient(var(--vif),var(--vif)) 0 100%/100% 5px no-repeat;padding:0 .04em .1em}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 30px;border-radius:100px;font-weight:800;
+  font-size:15.5px;letter-spacing:-.02em;cursor:pointer;border:0;font-family:inherit;transition:transform .3s,box-shadow .3s}
+.btn-p{background:var(--ink);color:var(--paper);box-shadow:0 16px 34px -14px rgba(20,20,19,.5)}
+.btn-p:hover{transform:translateY(-3px)}
+.dark .btn-p{background:var(--paper);color:var(--ink)}
+.sous{font-size:13.5px;color:var(--gris-2);margin-top:14px}
+.cta{text-align:center;margin-top:36px}
+
+/* bandeau noir défilant */
+.band{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:11px 0;font-size:13px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase}
+.band-track{display:inline-flex;animation:defil 38s linear infinite}
+.band-track span{padding:0 18px}
+.band-track i{color:var(--vif);font-style:normal}
+@keyframes defil{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.band-track{animation:none}}
+
+/* nav */
+.navo{position:sticky;top:0;z-index:50;background:rgba(244,243,240,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{max-width:var(--max);margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:17px;letter-spacing:-.045em;white-space:nowrap}
+.av{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;letter-spacing:0;flex:none;overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover}
+.nav-l{display:flex;gap:24px;margin-left:auto}
+.nav-l a{font-size:14.5px;font-weight:600;color:var(--gris)}
+.nav-l a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--paper);border-radius:100px;padding:11px 19px;font-weight:800;font-size:14px;white-space:nowrap}
+@media(max-width:900px){.nav-l{display:none}.nav-cta{margin-left:auto}}
+
+/* hero */
+.hero{padding:58px 0 70px;text-align:center}
+h1{font-size:clamp(32px,5.4vw,62px);margin-bottom:24px}
+h1 .mais{display:flex;align-items:center;justify-content:center;gap:18px;width:fit-content;font-size:.44em;font-weight:600;font-style:italic;
+  letter-spacing:.015em;color:var(--gris);margin:.16em auto .12em;line-height:1}
+h1 .mais::before,h1 .mais::after{content:'';width:clamp(30px,4.4vw,60px);height:2px;border-radius:2px;background:var(--line-2)}
+h1 .hl{display:inline-block}
+.hero .lead{margin:0 auto;max-width:640px;color:var(--ink-2);font-weight:600;font-size:clamp(15px,1.5vw,17.5px)}
+.mepill{display:inline-flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--line);border-radius:100px;
+  padding:6px 22px 6px 6px;margin-top:28px;box-shadow:var(--sh);font-size:15px;font-weight:800}
+.mepill .av{width:40px;height:40px;border:2.5px solid var(--vif)}
+@media(max-width:560px){h1 br.dk{display:none}h1{text-wrap:balance}h1 .hl{display:inline}.nav-cta{padding:10px 14px;font-size:13px}.brand{font-size:15.5px}}
+
+/* VSL */
+.vsl{max-width:820px;margin:40px auto 0;position:relative}
+.vsl .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:3;background:var(--vif);color:var(--ink);font-size:12px;
+  font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:100px;white-space:nowrap}
+.frame{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--ink);box-shadow:0 30px 60px -30px rgba(20,20,19,.55);cursor:pointer}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frame .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.frame .play span{width:78px;height:78px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.frame .play span::after{content:'';border-left:22px solid var(--ink);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+.frame .vide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#A8A69D;font-weight:700;padding:20px;text-align:center}
+
+/* cartes */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--sh)}
+.card h3{font-size:21px;margin-bottom:12px}
+.card p{color:var(--ink-2)}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);box-shadow:none}
+.dark .card p{color:#A8A69D}
+.dark .card h3{color:var(--paper)}
+.num{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--vif);display:block;margin-bottom:14px}
+.card .num{color:var(--gris)}
+.dark .card .num{color:var(--vif)}
+.card-t{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-bottom:18px}
+.pb{list-style:none;display:grid;gap:13px}
+.pb li{display:flex;gap:12px;align-items:flex-start;line-height:1.5}
+.pb li::before{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:1px}
+.pb.no li::before{content:'✕';background:var(--paper-2);color:var(--gris)}
+.pb.ok li::before{content:'✓';background:var(--vif);color:var(--ink)}
+.card.inv{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.card.inv .card-t{color:#A8A69D}
+.dark p.chute{color:var(--paper)}
+.chute{text-align:center;font-size:clamp(19px,2.2vw,24px);font-weight:800;letter-spacing:-.03em;margin-top:38px;color:var(--paper)}
+
+/* l'appel */
+.appel{max-width:760px;margin:0 auto;text-align:center}
+.arrows{list-style:none;display:grid;gap:12px;max-width:420px;margin:26px auto 0;text-align:left}
+.arrows li{display:flex;gap:12px;align-items:center;font-weight:700}
+.arrows li::before{content:'→';flex:none;width:28px;height:28px;border-radius:50%;background:var(--vif);display:flex;align-items:center;justify-content:center;font-size:14px}
+.zero{margin-top:22px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gris)}
+.dark .zero{color:#8E8C83}
+
+/* méthode */
+.steps{max-width:760px;margin:0 auto;display:grid;gap:16px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--sh)}
+.step .n{width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px}
+.step h3{font-size:21px;margin-bottom:6px}
+.step p{color:var(--ink-2)}
+.garantie{max-width:760px;margin:22px auto 0;border:2px dashed var(--line-2);border-radius:var(--r);padding:22px 26px;text-align:center;font-weight:700}
+@media(max-width:560px){.step{grid-template-columns:1fr;gap:12px}}
+
+/* qui je suis */
+.bio{max-width:720px;margin:0 auto}
+.bio p{color:var(--ink-2);font-size:17.5px;margin-bottom:18px}
+.bio .acc{font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.3}
+.bio .fin{font-weight:800;color:var(--ink)}
+
+/* rdv */
+.rdv{max-width:900px;margin:0 auto}
+.rdv-box{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;min-height:620px}
+.rdv-box .iclosed-widget{width:100%;height:680px}
+.rdv-vide{min-height:620px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:30px;color:var(--gris);font-weight:700}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 24px;box-shadow:var(--sh)}
+.faq summary{cursor:pointer;font-weight:800;font-size:17px;letter-spacing:-.02em;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:22px;line-height:1;color:var(--gris)}
+.faq details[open] summary::after{content:'–'}
+.faq details p{margin-top:12px;color:var(--ink-2)}
+
+/* final + footer */
+.final{text-align:center;padding:84px 0}
+.final h2{max-width:760px;margin:0 auto 16px}
+.final .lead{margin:0 auto}
+footer{padding:28px 0;text-align:center;font-size:13.5px;color:var(--gris)}
+footer a{text-decoration:underline}
+
+
+/* vidéos */
+.vbox{position:relative}
+.vplay{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding-bottom:22px}
+.vplay::before{content:'';width:54px;height:54px;border-radius:50%;background:var(--ink);box-shadow:0 10px 24px -8px rgba(0,0,0,.5)}
+.vplay::after{content:'';position:absolute;bottom:39px;left:50%;margin-left:-6px;border-left:16px solid var(--paper);border-top:10px solid transparent;border-bottom:10px solid transparent}
+
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.reel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
+.reel video{width:100%;aspect-ratio:4/5;object-fit:cover;background:#fff;display:block;border-bottom:1px solid var(--line)}
+.reel .cap{padding:16px 18px 18px}
+.reel .cap b{display:block;font-size:16px;line-height:1.3;letter-spacing:-.02em}
+.reel .cap span{font-size:13px;color:var(--gris);font-weight:600}
+@media(max-width:980px){.reels{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.reels{gap:12px}.reel .cap{padding:12px 13px 14px}.reel .cap b{font-size:14.5px}}
+@media(max-width:560px){.wrap,nav{padding:0 16px}section{padding:52px 0}.card{padding:24px}.btn{padding:16px 24px}}
+</style>
+</head>
+<body>
+
+<div class="band" aria-hidden="true"><div class="band-track">
+  <span>Anti-coach</span><i>·</i><span>On tranche</span><i>·</i><span>On agit</span><i>·</i><span>On règle</span><i>·</i><span>Zéro blabla</span><i>·</i>
+  <span>Anti-coach</span><i>·</i><span>On tranche</span><i>·</i><span>On agit</span><i>·</i><span>On règle</span><i>·</i><span>Zéro blabla</span><i>·</i>
+  <span>Anti-coach</span><i>·</i><span>On tranche</span><i>·</i><span>On agit</span><i>·</i><span>On règle</span><i>·</i><span>Zéro blabla</span><i>·</i>
+  <span>Anti-coach</span><i>·</i><span>On tranche</span><i>·</i><span>On agit</span><i>·</i><span>On règle</span><i>·</i><span>Zéro blabla</span><i>·</i>
+</div></div>
+
+<div class="navo"><nav>
+  <a class="brand" href="#top"><span class="av js-photo">MH</span>maxime hrynyk</a>
+  <div class="nav-l"><a href="#methode">La méthode</a><a href="#terrains">Ce qu'on règle</a><a href="#qui">Qui je suis</a><a href="#videos">Écouter</a><a href="#faq">Questions</a></div>
+  <a class="nav-cta js-rdv" href="#rdv">Parler de mes sujets</a>
+</nav></div>
+
+<!-- HERO -->
+<header class="hero" id="top"><div class="wrap">
+  <span class="eyebrow"><b></b>Anti-coach · Pour être accompagné autrement</span>
+  <h1>Tu sais exactement <br class="dk">ce que tu dois régler.<span class="mais">mais</span><span class="hl">Ça traîne depuis des mois.</span></h1>
+  <p class="lead">Résultat : tu en parles à chaque dîner, tu y repenses le soir, et rien ne bouge. Moi, je ne te fais pas réfléchir pendant six mois. On tranche, on agit, on règle.</p>
+  <a class="mepill" href="#qui"><span class="av js-photo">MH</span>Qui je suis ↓</a>
+
+  <div class="vsl">
+    <span class="badge">À regarder en premier · 2 min</span>
+    <div class="frame" id="vsl"></div>
+  </div>
+  <div class="cta"><a class="btn btn-p js-rdv" href="#rdv">Parler de mes sujets</a><p class="sous">30 minutes en visio · créneaux le soir</p></div>
+</div></header>
+
+<!-- L'APPEL -->
+<section style="padding-top:20px"><div class="wrap"><div class="appel card" style="padding:44px 30px">
+  <h2>D'abord, on regarde <span class="hl">si je peux t'aider.</span></h2>
+  <p class="lead" style="margin:0 auto">Trente minutes en visio, le soir si c'est plus simple pour toi. Tu viens avec le sujet qui traîne. Je te pose des questions directes, et je te dis franchement ce que j'en pense.</p>
+  <ul class="arrows"><li>Pourquoi ça bloque vraiment</li><li>La décision que tu repousses</li><li>Si je peux t'aider, ou pas</li></ul>
+  <p class="zero">Zéro blabla · Zéro pitch déguisé · Zéro relance</p>
+  <div class="cta" style="margin-top:26px"><a class="btn btn-p js-rdv" href="#rdv">Parler de mes sujets</a></div>
+</div></div></section>
+
+<!-- LE MIROIR -->
+<section><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Le constat</span><h2>Tu as les moyens. <br>Tu n'as plus <span class="hl">la bande passante.</span></h2></div>
+  <div class="g2">
+    <div class="card"><p class="card-t">Là où tu en es aujourd'hui</p><ul class="pb no">
+      <li>Une pile de sujets en suspens : business, argent, maison, vie perso</li>
+      <li>Tu en parles à chaque dîner, sans jamais les régler</li>
+      <li>Tu attends « le bon moment », qui n'arrive jamais</li>
+      <li>Tu as des avis, mais personne pour trancher avec toi</li>
+      <li>Tu vis en pilote automatique, sans savoir pourquoi tu fais ce que tu fais</li>
+    </ul></div>
+    <div class="card inv"><p class="card-t">Ce qui change</p><ul class="pb ok">
+      <li>Un sujet à la fois, réglé jusqu'au bout</li>
+      <li>Tu n'en parles plus, parce que c'est fait</li>
+      <li>On bouge dès que tu as dit oui</li>
+      <li>Une décision claire, avec ce qu'elle coûte</li>
+      <li>Tu reprends la main sur ta vie, et tu sais pour quoi tu te lèves</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<!-- DÉJÀ ESSAYÉ -->
+<section class="dark"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Ce que tu as déjà essayé</span><h2>Tu as déjà essayé. <br>Ce n'était pas <span class="hl">conçu pour ça.</span></h2></div>
+  <div class="g3">
+    <div class="card"><span class="num">01</span><h3>Le coach</h3><p>Il te fait réfléchir. Tu repars avec des prises de conscience, et les sujets sont toujours sur la table.</p></div>
+    <div class="card"><span class="num">02</span><h3>L'expert</h3><p>Avocat, banquier, agent : il te facture un avis. La décision et l'exécution restent pour toi.</p></div>
+    <div class="card"><span class="num">03</span><h3>Le faire seul « ce week-end »</h3><p>Tu le notes, tu le repousses, tu le renotes. Le week-end en question n'arrive jamais.</p></div>
+  </div>
+  <p class="chute">Le point commun : personne n'allait jusqu'au bout avec toi.</p>
+</div></section>
+
+<!-- TERRAINS -->
+<section id="terrains"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Ce qu'on règle</span><h2>Ce que tu m'apportes. <br><span class="hl">Ce qu'on règle.</span></h2></div>
+  <div class="g2">
+    <div class="card"><span class="num">BUSINESS</span><h3>Ton business</h3><p>Une com qui ne démarre pas, des prix trop bas, des rendez-vous commerciaux mal préparés, une marge qui fond.</p></div>
+    <div class="card"><span class="num">PATRIMOINE</span><h3>Ton argent et ton patrimoine</h3><p>Vendre un bien, négocier un achat, encadrer des travaux sans te faire balader, gérer un sinistre avec l'assurance.</p></div>
+    <div class="card"><span class="num">LITIGES</span><h3>Tes litiges</h3><p>Un contrat signé trop vite, un voisin qui te met la pression. Le cadre légal, le rapport de force, le dossier prêt, et un accord amiable si possible.</p></div>
+    <div class="card"><span class="num">VIE</span><h3>Ton temps et ta vie</h3><p>Dégager du temps pour ta famille, faire le ménage (dossiers, gens, engagements), reprendre ce que quelqu'un d'autre gérait avant, enfin déléguer.</p></div>
+  </div>
+  <div class="cta"><a class="btn btn-p js-rdv" href="#rdv">Parler de mes sujets</a></div>
+</div></section>
+
+<!-- MÉTHODE -->
+<section id="methode" style="background:var(--paper-2)"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>La méthode</span><h2>Des sujets qui traînent <br><span class="hl">jusqu'à ce qu'ils soient réglés.</span></h2></div>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><div><h3>Faire dire</h3><p>On pose les faits, et je te mets face à tes contradictions. On trouve pourquoi ça n'avance pas.</p></div></div>
+    <div class="step"><span class="n">02</span><div><h3>Trancher</h3><p>Une décision claire, les options possibles et ce qu'elles coûtent. Je te donne un avis tranché. Tu restes responsable de ta décision.</p></div></div>
+    <div class="step"><span class="n">03</span><div><h3>Agir vite</h3><p>On construit le dossier, je t'accompagne aux rendez-vous, on prend en charge ce que tu repousses. On bouge dès que tu as dit oui, pour ne pas perdre l'élan.</p></div></div>
+  </div>
+  <p class="garantie">Tu ressors sans flou : chaque sujet est soit réglé, soit accompagné d'une décision et d'un plan écrit.</p>
+</div></section>
+
+<!-- QUI JE SUIS -->
+<section id="qui"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Qui je suis</span><h2>Pourquoi je suis <span class="hl">un anti-coach.</span></h2></div>
+  <div class="bio">
+    <p>J'ai perdu mon père à 27 ans. Depuis, j'ai mis de côté des pans entiers de ma vie. Je pensais pouvoir faire pause.<br>
+    À 28 ans, mon couple explose sans que je voie rien venir. Je pars avec deux valises, et une décision qui me coûtera 50 000 €.<br>
+    Je continue de nier. Cette fois, c'est mon cœur qui se met à battre de travers. J'ai moins de 30 ans.</p>
+    <p>Je me suis fait suivre. On m'a aidé à comprendre. Personne ne m'a aidé à trancher.<br>
+    J'ai appelé des proches. Ils m'écoutaient, sans comprendre.<br>
+    Alors j'ai appris à trancher seul, dans le bordel.</p>
+    <p class="acc">L'anti-coach, c'est celui que j'aurais voulu trouver à ce moment-là : quelqu'un qui écoute, qui tranche avec toi, et qui reste jusqu'à ce que ce soit réglé.</p>
+    <p>Plus de 10 000 rendez-vous d'expertise m'ont confirmé une chose : un sujet délaissé n'est jamais un problème… jusqu'à ce qu'il te pète à la gueule.</p>
+    <p>Je vois des gens comme moi, pris en otage entre affronter et repousser. Figés, parce que personne ne leur apporte le soutien technique et la force de frappe pour bouger. Mon travail : ouvrir la porte, et la franchir avec eux.</p>
+    <p class="fin">La paix n'est pas dans la décision parfaite. Elle est dans le fait d'être OK avec ses conséquences.</p>
+  </div>
+</div></section>
+
+<!-- VIDÉOS -->
+<section id="videos" style="background:var(--paper-2)"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Écoute</span><h2>Je ne te dis pas ce que tu veux entendre. <br><span class="hl">Je te dis ce que je pense.</span></h2>
+    <p class="lead">Trente secondes chacune. Si ça te parle, on peut parler de tes sujets.</p></div>
+  <div class="reels">
+    <div class="reel"><div class="vbox"><video src="videos/video-1.mp4" poster="videos/video-1.jpg" playsinline preload="none"></video><button class="vplay" type="button" aria-label="Lire la vidéo"></button></div><div class="cap"><span>▶ 34 s · écoute avec le son</span></div></div>
+    <div class="reel"><div class="vbox"><video src="videos/video-2.mp4" poster="videos/video-2.jpg" playsinline preload="none"></video><button class="vplay" type="button" aria-label="Lire la vidéo"></button></div><div class="cap"><span>▶ 41 s · écoute avec le son</span></div></div>
+    <div class="reel"><div class="vbox"><video src="videos/video-3.mp4" poster="videos/video-3.jpg" playsinline preload="none"></video><button class="vplay" type="button" aria-label="Lire la vidéo"></button></div><div class="cap"><span>▶ 43 s · écoute avec le son</span></div></div>
+    <div class="reel"><div class="vbox"><video src="videos/video-4.mp4" poster="videos/video-4.jpg" playsinline preload="none"></video><button class="vplay" type="button" aria-label="Lire la vidéo"></button></div><div class="cap"><span>▶ 27 s · écoute avec le son</span></div></div>
+  </div>
+  <div class="cta"><a class="btn btn-p js-rdv" href="#rdv">Parler de mes sujets</a></div>
+</div></section>
+
+<!-- POUR QUI -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="head"><h2>Je ne travaille pas <span class="hl">avec tout le monde.</span></h2></div>
+  <div class="g2">
+    <div class="card"><p class="card-t">C'est pour toi si</p><ul class="pb ok">
+      <li>Tu es indépendant, entrepreneur ou cadre, et tu as les moyens d'avancer</li>
+      <li>Tu traînes un ou plusieurs sujets depuis trop longtemps</li>
+      <li>Tu veux qu'on te parle franchement</li>
+      <li>Tu es prêt à décider, et à bouger vite</li>
+    </ul></div>
+    <div class="card"><p class="card-t">Ce n'est pas pour toi si</p><ul class="pb no">
+      <li>Tu cherches quelqu'un qui te dise que tout va bien</li>
+      <li>Tu veux réfléchir encore six mois avant de bouger</li>
+      <li>Tu cherches un avocat ou un agent immobilier (je te dirai lequel prendre)</li>
+      <li>Tu veux un assistant à vie</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<!-- RDV iClosed -->
+<section id="rdv" class="dark"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Prendre rendez-vous</span><h2>Choisis <span class="hl">ton créneau.</span></h2>
+    <p class="lead">Laisse ton nom et ton email, puis choisis le moment qui t'arrange. Trente minutes, en visio.</p></div>
+  <div class="rdv"><div class="rdv-box" id="rdv-box"></div></div>
+  <p class="zero" style="text-align:center">Zéro blabla · Zéro pitch déguisé · Zéro relance</p>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="head"><span class="eyebrow"><b></b>Questions</span><h2>Ce qu'on me <span class="hl">demande souvent.</span></h2></div>
+  <div class="faq">
+    <details><summary>C'est quoi la différence avec un coach ?</summary><p>Un coach te fait réfléchir. Moi, je diagnostique, je tranche avec toi, et on exécute. Tu ne repars pas avec des prises de conscience, tu repars avec un sujet réglé ou un plan écrit.</p></details>
+    <details><summary>Tu es avocat ? Agent immobilier ?</summary><p>Non. Je te donne le cadre et je prépare le dossier. Quand il faut un pro, je te dis lequel, et combien ça coûte.</p></details>
+    <details><summary>Combien ça coûte ?</summary><p>Ça dépend de tes sujets : une intervention ponctuelle ou un accompagnement sur 90 jours. On en parle pendant l'appel, une fois que je sais si je peux t'aider.</p></details>
+    <details><summary>Mon sujet est très personnel. C'est un problème ?</summary><p>Non. Business, argent, maison, vie perso : tout se tient. Ce que tu me dis reste entre nous.</p></details>
+    <details><summary>Je travaille en journée. Comment on fait ?</summary><p>Les appels se font en visio, et il y a des créneaux le soir.</p></details>
+    <details><summary>Je dois préparer quelque chose avant l'appel ?</summary><p>Juste le sujet qui traîne. Le reste, on le fait ensemble.</p></details>
+  </div>
+</div></section>
+
+<!-- FINAL -->
+<section class="dark final"><div class="wrap">
+  <h2>Les sujets qui traînent <span class="hl">ne vont pas se régler tout seuls.</span></h2>
+  <p class="lead">Trente minutes pour savoir pourquoi ça bloque, et si je peux t'aider.</p>
+  <div class="cta"><a class="btn btn-p js-rdv" href="#rdv">Parler de mes sujets</a></div>
+  <p class="zero">Zéro blabla · Zéro pitch déguisé · Zéro relance</p>
+</div></section>
+
+<footer><div class="wrap">Maxime Hrynyk · Anti-coach · <a href="#">Mentions légales</a></div></footer>
+
+<script>
+/* ====== RÉGLAGES ====== */
+const LIEN_APPEL = "https://app.iclosed.io/e/Maxime-anticoach/Appel-decouverte"; // événement iClosed
+const VSL_YOUTUBE = "-mQK2bjrcPI"; // ID YouTube de la VSL, ex. "dQw4w9WgXcQ" (laisser vide tant qu'elle n'existe pas)
+const PHOTO = "";       // ex. "photo.jpg" placé à la racine du dépôt GitHub
+/* ====================== */
+
+// photo
+if (PHOTO) document.querySelectorAll('.js-photo').forEach(e => e.innerHTML = '<img src="' + PHOTO + '" alt="Maxime Hrynyk">');
+
+// VSL : l'iframe ne se charge qu'au clic
+const f = document.getElementById('vsl');
+if (VSL_YOUTUBE) {
+  f.innerHTML = '<img src="https://i.ytimg.com/vi/' + VSL_YOUTUBE + '/maxresdefault.jpg" onerror="this.src=\'https://i.ytimg.com/vi/' + VSL_YOUTUBE + '/hqdefault.jpg\'" alt="Vidéo de présentation"><div class="play"><span></span></div>';
+  f.addEventListener('click', () => {
+    f.innerHTML = '<iframe src="https://www.youtube.com/embed/' + VSL_YOUTUBE + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+  }, { once: true });
+} else {
+  f.style.cursor = 'default';
+  f.innerHTML = '<div class="vide"><span style="font-size:28px">▶</span>La vidéo arrive bientôt</div>';
+}
+
+// iClosed : widget intégré (capture nom + email avant le choix du créneau)
+const box = document.getElementById('rdv-box');
+box.innerHTML = '<div class="iclosed-widget" data-url="' + LIEN_APPEL + '" title="Appel découverte" style="width:100%;height:680px"></div>';
+const s = document.createElement('script');
+s.src = 'https://app.iclosed.io/assets/widget.js'; s.async = true;
+document.body.appendChild(s);
+
+// reels
+document.querySelectorAll('.vbox').forEach(bx=>{const v=bx.querySelector('video'),b=bx.querySelector('.vplay');
+  b.addEventListener('click',()=>{b.remove();v.controls=true;v.play();});
+  v.addEventListener('play',()=>document.querySelectorAll('.reel video').forEach(o=>{if(o!==v)o.pause()}));});
+</script>
+</body>
+</html>
